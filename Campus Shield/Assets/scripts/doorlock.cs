@@ -9,6 +9,7 @@ public class DoorLock : MonoBehaviour
     [Header("State")]
     public bool isLocked = false;
     public bool isOpen = true;
+    public bool isBlockedByChair = false;
 
     private Vector3 closedPosition;
     private Vector3 openPosition;
@@ -34,6 +35,11 @@ public class DoorLock : MonoBehaviour
         if (isLocked)
         {
             Debug.Log("Door is locked!");
+            return;
+        }
+        if (isBlockedByChair)
+        {
+            Debug.Log("Door is blocked by chair!");
             return;
         }
         isOpen = !isOpen;
